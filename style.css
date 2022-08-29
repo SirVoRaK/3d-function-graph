@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #000;
+}
+.line {
+    display: flex;
+    overflow: visible;
+    transform-style: preserve-3d;
+}
+.result {
+    --size: 12px;
+    width: var(--size);
+    height: var(--size);
+    transform-style: preserve-3d;
+    overflow: visible;
+    backface-visibility: visible;
+    overflow: visible;
+}
+
+.container {
+    transform-style: preserve-3d;
+    overflow: visible;
+    animation: rotateX 45s linear infinite;
+    transform-origin: center;
+    margin-top: 100px;
+}
+
+@keyframes rotateX {
+    0% {
+        transform: rotateX(45deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(45deg) rotateZ(360deg);
+    }
+}
+
+input {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    text-align: center;
+    font-size: 26px;
+}
