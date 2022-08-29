@@ -32,10 +32,10 @@ body {
 
 @keyframes rotateX {
     0% {
-        transform: rotateX(45deg) rotateZ(0deg);
+        transform: rotateX(50deg) rotateZ(0deg);
     }
     100% {
-        transform: rotateX(45deg) rotateZ(360deg);
+        transform: rotateX(50deg) rotateZ(360deg);
     }
 }
 
