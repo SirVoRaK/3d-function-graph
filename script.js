@@ -12,11 +12,11 @@ function f(x, y) {
 const input = document.querySelector('input')
 input.oninput = debounce(run, 1000)
 
-const size = 25
+const size = 12
 
 const results = {}
 
-const steps = 1
+const steps = 0.5
 
 const maxHeight = 90
 
