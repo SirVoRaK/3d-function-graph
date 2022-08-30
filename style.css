@@ -1,3 +1,7 @@
+:root {
+    --size: 12px;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -6,6 +10,7 @@ body {
     justify-content: center;
     min-height: 100vh;
     background-color: #000;
+    overflow: hidden;
 }
 .line {
     display: flex;
@@ -13,29 +18,68 @@ body {
     transform-style: preserve-3d;
 }
 .result {
-    --size: 12px;
+    --bg: transparent;
+    background-color: var(--bg);
     width: var(--size);
     height: var(--size);
     transform-style: preserve-3d;
     overflow: visible;
     backface-visibility: visible;
     overflow: visible;
+    position: relative;
+}
+.face {
+    position: absolute;
+    background-color: var(--bg);
+    width: var(--size);
+    height: var(--size);
+    opacity: 0.5;
+}
+.face.front {
+    transform: rotateY(0deg) translateZ(calc(var(--size) / 2));
+}
+.face.right {
+    transform: rotateY(90deg) translateZ(calc(var(--size) / 2));
+}
+.face.back {
+    transform: rotateY(180deg) translateZ(calc(var(--size) / 2));
+}
+.face.left {
+    transform: rotateY(-90deg) translateZ(calc(var(--size) / 2));
+}
+.face.top {
+    transform: rotateX(90deg) translateZ(calc(var(--size) / 2));
+}
+.face.bottom {
+    transform: rotateX(-90deg) translateZ(calc(var(--size) / 2));
 }
 
 .container {
+    --angle: 70deg;
     transform-style: preserve-3d;
     overflow: visible;
     animation: rotateX 45s linear infinite;
     transform-origin: center;
     margin-top: 100px;
+    position: relative;
+}
+.container.floor {
+    background-color: hsl(0 0% 100% / 50%);
+    position: absolute;
+    animation: unset;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin-top: unset;
 }
 
 @keyframes rotateX {
     0% {
-        transform: rotateX(50deg) rotateZ(0deg);
+        transform: rotateX(var(--angle)) rotateZ(0deg);
     }
     100% {
-        transform: rotateX(50deg) rotateZ(360deg);
+        transform: rotateX(var(--angle)) rotateZ(360deg);
     }
 }
 
@@ -47,4 +91,5 @@ input {
     width: 90%;
     text-align: center;
     font-size: 26px;
+    z-index: 100;
 }
